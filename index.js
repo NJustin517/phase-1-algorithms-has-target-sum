@@ -1,9 +1,29 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  const seen = {};
+  for (let i = 0; i < array.length; i++) {
+    const current = array[i];
+    const compliment = target - current;
+    if (seen[compliment]) {
+      return true;
+    }
+    seen[current] = true;
+  }
+  return false;
 }
 
+// function hasTargetSum(array, target) {
+//   for (let i = 0; i < array.length; i++) {
+//     for (let j = i + 1; j < array.length; j++) {
+//       if (array[i] + array[j] === target) {
+//         return true;
+//       }
+//     }
+//   }
+//   return false;
+// }
+
 /* 
-  Write the Big O time complexity of your function here
+  O(n²)
 */
 
 /* 
